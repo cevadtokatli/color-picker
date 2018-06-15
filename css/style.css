@@ -1,0 +1,485 @@
+*,
+*:before,
+*:after {
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+}
+html {
+    font-size-adjust:100%;
+    -webkit-text-size-adjust:100%;
+    -moz-text-size-adjust:100%;
+    -o-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    font-family:"Open Sans", Roboto, Helvetica, sans-serif;
+}
+html,
+body,
+main {
+    height: 100%;
+}
+main {
+    overflow: auto;
+}
+main.blur-active {
+    filter: blur(5px);
+}
+a {
+    text-decoration: none;
+}
+.pages {
+    background: #3fa2e3;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.pages ul {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    padding: 0 35px;
+}
+.pages ul li {
+    flex: 0 1 auto;
+    -webkit-flex: 0 1 auto;
+    display: flex;
+    display: -webkit-flex;
+    list-style: none;
+}
+.pages ul li a {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    padding: 15px 25px;
+    color: #fbfbfb;
+    letter-spacing: .2px;
+    text-decoration: none;
+    transition: background 150ms 0s linear;
+}
+.pages ul li a svg {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    fill: #fbfbfb;
+}
+.pages ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.pages ul li a.active {
+    background: #1e8ad1;
+}
+.modals .modal {
+    position: fixed;
+    z-index: 5;
+    overflow: auto;
+    opacity: 0;
+    cursor: default;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 300ms 0s linear;
+}
+.modals .modal .modal-wrapper {
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    width: 100%;
+    max-height: 100%;
+    text-align: center;
+}
+.modals .modal .modal-container {
+    transform: translateY(-40px);
+    display: inline-block;
+    margin: 0 15px;
+    border-radius: 8px;
+    background: #fff;
+    transition: transform 300ms 0s linear;
+}
+.modals .modal .modal-container > header {
+    position: relative;
+    min-width: 300px;
+    padding: 25px;
+    border-bottom: solid 1px #f0f0f0;
+}
+.modals .modal .modal-container > header h1 {
+    color: #373434;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+.modals .modal .modal-container > header svg {
+    position: absolute;
+    cursor: pointer;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #373434;
+    width: 16px;
+    height: 16px;
+}
+.modals .modal .modal-container > section .example {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+.modals .modal .modal-container > section .example > div {
+    margin: 25px;
+}
+.modals .modal .modal-container > section .button-container {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    margin: 0 17.5px;
+}
+.modals .modal .modal-container > section .button-container .button {
+    margin: 15px 7.5px;
+}
+.modals .modal .modal-container > section .button-container ~ .example {
+    margin-top: -10px;
+}
+.modals .modal .modal-container > section .button {
+    cursor: pointer;
+    padding: 5px 25px;
+    border-radius: 4px;
+    background: #0f9aef;
+    color: #fbfbfb;
+    transition: background 100ms 0s linear;
+}
+.modals .modal .modal-container > section .button:hover {
+    background: #3fa2e3;
+}
+.modals .modal .modal-container > section form {
+    max-width: 600px;
+    padding: 25px;
+}
+.modals .modal .modal-container > section form .return-message,
+.modals .modal .modal-container > section form label {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+.modals .modal .modal-container > section form .return-message:not(:last-child),
+.modals .modal .modal-container > section form label:not(:last-child) {
+    margin-bottom: 25px;
+}
+.modals .modal .modal-container > section form .return-message {
+    padding: 6px 15px;
+    border-radius: 4px;
+    color: #fbfbfb;
+}
+.modals .modal .modal-container > section form .return-message.success {
+    background: #36a53b;
+}
+.modals .modal .modal-container > section form .return-message.error {
+    background: #f23e30;
+}
+.modals .modal .modal-container > section form label > span {
+    display: block;
+    margin-bottom: 7.5px;
+}
+.modals .modal .modal-container > section form label input,
+.modals .modal .modal-container > section form label textarea {
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: solid 1px #ddd;
+    color: inherit;
+    font: inherit;
+    transition: border 100ms 0s linear;
+}
+.modals .modal .modal-container > section form label input:focus,
+.modals .modal .modal-container > section form label textarea:focus {
+    border-color: #0079f4;
+    outline: 0;
+}
+.modals .modal .modal-container > section form label input[type="submit"],
+.modals .modal .modal-container > section form label textarea[type="submit"] {
+    display: none;
+}
+.modals .modal .modal-container > section form label textarea {
+    height: 100px;
+    resize: vertical;
+}
+.modals .modal .modal-container > section form label .button {
+    position: relative;
+    display: inline-block;
+}
+.modals .modal .modal-container > section form label .button.loading span {
+    visibility: hidden;
+}
+.modals .modal .modal-container > section form label .button .loading-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+.modals .modal .modal-container > section form label .button .loading-icon svg {
+    width: 100%;
+    height: 100%;
+    animation-name: spin-loading-animation;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.modals .modal .modal-container > section form label .button .loading-icon svg circle {
+    fill: none;
+    stroke: #fbfbfb;
+    stroke-dasharray: 1,150;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation-name: spin-loading-circle-animation;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.modals .modal:not(.active) {
+    display: none !important;
+}
+.modals .modal.animation-active {
+    opacity: 1;
+}
+.modals .modal.animation-active .modal-container {
+    transform: translateY(0);
+}
+@media (max-width: 600px) {
+    .pages ul {
+        padding: 0 10px;
+    }
+}
+@keyframes spin-loading-animation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin-loading-circle-animation {
+    0% {
+        stroke-dasharray: 1,150;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90,150;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dasharray: 90,150;
+        stroke-dashoffset: -124;
+    }
+}
+.CodeMirror {
+    height: auto;
+    background: transparent !important;
+}
+.CodeMirror .CodeMirror-line {
+    margin: 2px 7.5px;
+}
+.CodeMirror .CodeMirror-code {
+    overflow: auto;
+    max-height: 500px;
+    padding: 5px 0;
+    border-radius:4px;
+    background: #0f0f0f;
+}
+.demo {
+    background: #0f9aef;
+    padding: 40px 0;
+}
+.demo .demo-container {
+    max-width: 580px;
+    padding: 0 15px;
+    margin: auto;
+}
+.demo .demo-container hgroup {
+    color: #fbfbfb;
+    text-align: center;
+    font-family: Source Sans Pro;
+}
+.demo .demo-container hgroup h1 {
+    letter-spacing: -3px;
+    font-size: 85px;
+    font-weight: 400;
+}
+.demo .demo-container hgroup h2 {
+    margin: -22px 0 0 155px;
+    letter-spacing: -1px;
+    font-size: 26px;
+    font-weight: 300;
+}
+.demo .demo-container #demo-picker {
+    margin: 25px auto;
+}
+.demo .demo-container .npm-code {
+    padding: 15px 35px;
+    margin: 10px 0;
+    border-radius: 4px;
+    background: #0f0f0f;
+    color: darkgoldenrod;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+.demo .demo-container .download {
+    margin: 25px 0 15px 0;
+}
+.demo .demo-container .download span {
+    cursor: default;
+    color: #fff;
+    font-size: 17px;
+}
+.demo .demo-container .download-link {
+    margin-top: 25px;
+    text-align: center;
+}
+.demo .demo-container .download-link a {
+    color: #fff;
+    letter-spacing: -1px;
+    text-decoration: none;
+    font-size: 22px;
+    border-bottom: solid 1px #fff;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+}
+.container {
+    max-width: 1430px;
+    padding: 0 30px 45px 30px;
+    margin: auto;
+}
+.container .feature {
+    display: flex;
+    display: -webkit-flex;
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    padding: 30px 0;
+    border-bottom: solid 1px #ddd;
+}
+.container .feature .description h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+.container .feature .description ul {
+    margin: 20px;
+}
+.container .feature .description p {
+    line-height: 140%;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: 18px;
+}
+.container .feature .code .show-result {
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 5px;
+    bottom: 12px;
+    color: #0f9aef;
+    font-size: 15px;
+}
+.container .feature .code .show-result:hover {
+    border-bottom: solid 1px #0f9aef;
+}
+.container .feature .description,
+.container .feature .code {
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    width: 50%;
+}
+.container .feature .description:not(.order-reverse) {
+    padding-right: 15px;
+}
+.container .feature .description:not(.order-reverse) ~ .code {
+    padding-left: 15px;
+}
+.container .feature .order-reverse {
+    order: 2;
+    -webkit-order: 2;
+    padding-left: 15px;
+}
+.container .feature .order-reverse ~ .code {
+    order: 1;
+    -webkit-order: 1;
+    padding-right: 15px;
+}
+.container .installation {
+    padding: 20px;
+    margin: 30px 0;
+    border: solid 1px #ececec;
+    border-radius: 4px;
+    background: #f9f8f8;
+}
+.container .installation h2,
+.container .installation .description p {
+    color: #353535;
+}
+.container .installation > div {
+    padding: 10px 0;
+}
+.container .installation .description {
+    margin-bottom: 5px;
+}
+.container .installation .description p {
+    font-size: 16px;
+}
+.container .installation .description ul li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.container .seperator {
+    margin: 25px 0;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #61696e;
+}
+.container .seperator h1 {
+    color: #353535;
+    font-size: 22px;
+    font-weight: 600;
+}
+@media (max-width: 767px) {
+    .demo .demo-container hgroup h1 {
+        letter-spacing: -1px;
+        font-size: 40px;
+    }
+    .demo .demo-container hgroup h2 {
+        margin: -5px 0 0 0;
+        letter-spacing: initial;
+        font-size: 24px;
+    }
+    .container .feature {
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
+    .container .feature .description,
+    .container .feature .code {
+        width: 100%;
+        padding: 0 !important;
+    }
+    .container .feature .description {
+        order: 1;
+        -webkit-order: 1;
+    }
+    .container .feature .code {
+        order: 2;
+        -webkit-order: 2;
+        margin-top: 25px;
+    }
+}
