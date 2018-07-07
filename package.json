@@ -1,6 +1,6 @@
 {
   "name": "cordelia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Color picker for web and mobile browsers",
   "keywords": ["javascript", "colorpicker"],
   "author": {
@@ -15,10 +15,13 @@
   "files": [
     "src",
     "dist",
+    "types",
     "gulpfile.js"
   ],
   "license": "MIT",
   "main": "dist/js/cordelia.min.js",
+  "module": "dist/js/cordelia.esm.js",
+  "typings": "types/index.d.ts",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",

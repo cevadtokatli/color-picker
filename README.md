@@ -45,7 +45,7 @@ size | String | medium | The picker's size. Three options available *Small, Medi
 allowOpacity | Boolean | true | A boolean value that indicates whether the opacity bar is visible or not.
 allowClearColor | Boolean | false | A boolean value that indicates whether the clear color button (an eraser icon that allows clearing selection) is visible or not.
 showColorValue | Boolean | true | A boolean value that indicates whether the color value box is visible or not. Color value box allows you to set a color by typing its name or code. All of the CSS color formats are supported (HEX, RGB, RGBA, HSL, HSLA).
-buttons | Boolean | true | A boolean value that indicates whether the buttons are visible or not. If the `embed` property is false, the only way to close the picker is to click on the Save or Cancel button.
+showButtons | Boolean | true | A boolean value that indicates whether the buttons are visible or not. If the `embed` property is false, the only way to close the picker is to click on the Save or Cancel button.
 showPalette | Boolean | true | A boolean value that indicates whether the color table is visible or not. Color table allows you to show pre-defined colors. It is also possible for users to save colors for later use by adding this table.
 paletteColors | String[] | #FFFFB5, #FBBD87, #F45151, #7AEA89, #91C8E7, #8EB4E6, #B0A7F1 | An array that holds the name or codes of the colors that will be shown in the Color Table as default.
 allowPaletteAddColor | Boolean | true | A boolean value that indicates whether users can add a color to the color table or not.

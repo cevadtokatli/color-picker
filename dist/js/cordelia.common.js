@@ -1,6 +1,6 @@
 /*!
  *   Cordelia color picker
- *   version: 1.0.0
+ *   version: 1.0.1
  *    author: Cevad Tokatli <cevadtokatli@hotmail.com>
  *   website: http://cevadtokatli.com
  *    github: https://github.com/cevadtokatli/cordelia
@@ -2173,8 +2173,8 @@ var Cordelia = function () {
          * Shows or hides the given element with opacity animation.
          *
          * @param {HTML Element} elm
-         * @param {String|null} c
-         * @returns {Promise}
+         * @param {String} c
+         * @returns {Promise<void>}
          */
 
     }, {
@@ -2421,7 +2421,7 @@ var Cordelia = function () {
          * Converts any color type to RGBA with getComputedStyle.
          *
          * @param {String} color
-         * @retuns {Object}
+         * @returns {Object}
          */
 
     }, {

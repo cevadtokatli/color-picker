@@ -805,8 +805,8 @@ export default class Cordelia {
      * Shows or hides the given element with opacity animation.
      *
      * @param {HTML Element} elm
-     * @param {String|null} c
-     * @returns {Promise}
+     * @param {String} c
+     * @returns {Promise<void>}
      */
     opacityToggle(elm, c) {
         return new Promise(resolve => {
@@ -1019,7 +1019,7 @@ export default class Cordelia {
      * Converts any color type to RGBA with getComputedStyle.
      *
      * @param {String} color
-     * @retuns {Object}
+     * @returns {Object}
      */
     getRgbaValue(color) {
         this.elm.rgbaColor.style.background = color;
