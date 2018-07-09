@@ -74,3 +74,9 @@ IE 10 is not supported and patches to fix problems will not be accepted.
 
 ## License
 Cordelia is provided under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Related Projects
+* [cordelia-jquery](https://github.com/cevadtokatli/cordelia-jquery)
+* [cordelia-react](https://github.com/cevadtokatli/cordelia-react)
+* [cordelia-vue](https://github.com/cevadtokatli/cordelia-vue)
+* [cordelia-angular](https://github.com/cevadtokatli/cordelia-angular)
