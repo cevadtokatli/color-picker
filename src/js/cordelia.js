@@ -31,6 +31,11 @@ export default class Cordelia {
      * @constructor
      */
     constructor(o) {
+        // dont install if runs on the server.
+        if(typeof window === 'undefined') {
+            return;
+        }
+
         // Stores the HTML Elements.
         this.elm = {};
 		

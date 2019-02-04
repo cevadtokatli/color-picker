@@ -1,6 +1,6 @@
 /*!
  *   Cordelia color picker
- *   version: 1.0.2
+ *   version: 1.0.3
  *    author: Cevad Tokatli <cevadtokatli@hotmail.com>
  *   website: http://cevadtokatli.com
  *    github: https://github.com/cevadtokatli/cordelia
@@ -53,7 +53,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
    * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
    * @license   Licensed under MIT license
    *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
-   * @version   v4.2.4+314e4831
+   * @version   v4.2.5+7f2b526d
    */
 
   (function (global, factory) {
@@ -484,9 +484,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
         succeeded = true;
       }
 
-      if (promise._state !== PENDING) {
-        // noop
-      } else if (hasCallback && succeeded) {
+      if (promise._state !== PENDING) ; else if (hasCallback && succeeded) {
         resolve(promise, value);
       } else if (failed) {
         reject(promise, error);
@@ -1149,15 +1147,19 @@ var es6Promise = createCommonjsModule(function (module, exports) {
         var promise = this;
         var constructor = promise.constructor;
 
-        return promise.then(function (value) {
-          return constructor.resolve(callback()).then(function () {
-            return value;
+        if (isFunction(callback)) {
+          return promise.then(function (value) {
+            return constructor.resolve(callback()).then(function () {
+              return value;
+            });
+          }, function (reason) {
+            return constructor.resolve(callback()).then(function () {
+              throw reason;
+            });
           });
-        }, function (reason) {
-          return constructor.resolve(callback()).then(function () {
-            throw reason;
-          });
-        });
+        }
+
+        return promise.then(callback, callback);
       };
 
       return Promise;
@@ -1216,14 +1218,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
   
 });
 
-var es6Promise$1 = /*#__PURE__*/Object.freeze({
-	default: es6Promise,
-	__moduleExports: es6Promise
-});
-
-var require$$0 = ( es6Promise$1 && es6Promise ) || es6Promise$1;
-
-var auto = require$$0.polyfill();
+var auto = es6Promise.polyfill();
 
 /**
  * Creates a new event and initalizes it.
@@ -1232,9 +1227,12 @@ var auto = require$$0.polyfill();
  * @returns {Event}
  */
 function createEvent(name) {
-  var event = document.createEvent('HTMLEvents') || document.createEvent('event');
-  event.initEvent(name, false, true);
-  return event;
+    var event = void 0;
+    if (typeof document !== 'undefined') {
+        event = document.createEvent('HTMLEvents') || document.createEvent('event');
+        event.initEvent(name, false, true);
+    }
+    return event;
 }
 
 var events = {
@@ -1268,6 +1266,11 @@ var Cordelia = function () {
      */
     function Cordelia(o) {
         classCallCheck(this, Cordelia);
+
+        // dont install if runs on the server.
+        if (typeof window === 'undefined') {
+            return;
+        }
 
         // Stores the HTML Elements.
         this.elm = {};

@@ -5,7 +5,10 @@
  * @returns {Event}
  */
 export function createEvent(name) {
-    var event = document.createEvent('HTMLEvents') || document.createEvent('event');
-    event.initEvent(name, false, true);
+    let event;
+    if(typeof document !== 'undefined') {
+        event = document.createEvent('HTMLEvents') || document.createEvent('event');
+        event.initEvent(name, false, true);
+    }
     return event;
 }
