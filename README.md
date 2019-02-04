@@ -4,7 +4,12 @@ See the documentation and demo for more information: [https://cevadtokatli.githu
 
 ## NPM
 ```
-npm install --save cordelia
+npm install --save-dev cordelia
+```
+
+## Yarn
+```
+yarn add cordelia
 ```
 
 ## Installation
