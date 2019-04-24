@@ -510,10 +510,15 @@ export default class Cordelia {
      * @returns {x: Number, y: Number}
      */
     newPosition(event, picker) {
-        var rect = picker.container.getBoundingClientRect(),
-            eX = (event.clientX) ? event.clientX : event.pageX - window.pageXOffset,
-            eY = (event.clientY) ? event.clientY : event.pageY - window.pageYOffset,
-            x = eX - (rect.left + picker.subtractedValue),
+        var rect = picker.container.getBoundingClientRect(), eX, eY;
+        if ('touches' in event) {
+            eX = event.touches[0].clientX ? event.touches[0].clientX : event.touches[0].pageX - window.pageXOffset;
+            eY = event.touches[0].clientY ? event.touches[0].clientY : event.touches[0].pageY - window.pageYOffset;
+        } else {
+            eX = event.clientX ? event.clientX : event.pageX - window.pageXOffset;
+            eY = event.clientY ? event.clientY : event.pageY - window.pageYOffset;
+        }
+        var x = eX - (rect.left + picker.subtractedValue),
             y = eY - (rect.top + picker.subtractedValue);
 
         if(x < -picker.subtractedValue) { x = -picker.subtractedValue; } else if(x > (picker.width - picker.subtractedValue)) { x = picker.width - picker.subtractedValue; }
