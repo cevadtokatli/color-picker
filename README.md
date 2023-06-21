@@ -1,50 +1,37 @@
-# Cordelia
-Cordelia is a JavaScript library that allows you to add a rich color picker into your web pages.
-See the documentation and demo for more information: [https://cevadtokatli.github.io/cordelia](https://cevadtokatli.github.io/cordelia)
-
-## NPM
-```
-npm install --save-dev cordelia
-```
-
-## Yarn
-```
-yarn add cordelia
-```
+# Color Picker
+JavaScript library that allows you to add a rich color picker into your web pages.
+See the documentation and demo for more information: [https://cevadtokatli.github.io/color-picker](https://cevadtokatli.github.io/color-picker)
 
 ## Installation
-You can simply import Cordelia and create a new object with it.
-```
-import Cordelia from 'cordelia'
 
-const picker = new Cordelia({
-    elm: '#picker',
-    color: '#EEA55B'
-});
-```
+It is available as a package on NPM for use with a module bundler.
 
-You can also add the script file into your html.
-```
-<script src="/node_modules/cordelia/dist/js/cordelia.min.js"></script>
-<script>
-var picker = new Cordelia({
-    elm: '#picker',
-    color: '#EEA55B'
-});
-</script>
+```sh
+# NPM
+$ npm install --save @cevad-tokatli/color-picker
+
+# Yarn
+$ yarn add @cevad-tokatli/color-picker
 ```
 
-Put the CSS file in the ```head``` tag.
-```
-<link rel="stylesheet" href="/node_modules/cordelia/dist/css/cordelia.min.css" />
-```
+## Usage
 
+You can simply import the module and create a new object with it.
+
+```js
+import ColorPicker from '@cevad-tokatli/color-picker'
+
+const picker = new ColorPicker({
+  elm: '#picker',
+  color: '#EEA55B',
+})
+```
 ## Settings
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
 color | String | #FF0000 | The picker's initial value.
-colorFormat | String | hex | The format of the picker's value. Cordelia supports three types of formats: HEX, RGB and HSL. If the opacity is less than 1, HSL is automatically converted to HSLA, HEX and RGB are automatically converted to RGBA.
-pickerStyle | Number | 0 | Cordelia comes with two style options. In the first style, the main box allows setting the saturation and lightness of the color and the second box allows setting the color; this is the default. In the second style, the main box allows setting the color and the second box allows setting the saturation and lightness. For more information please view the [demo](https://cevadtokatli.github.io/cordelia).
+colorFormat | String | hex | The format of the picker's value. Supports three types of formats: HEX, RGB and HSL. If the opacity is less than 1, HSL is automatically converted to HSLA, HEX and RGB are automatically converted to RGBA.
+pickerStyle | Number | 0 | Comes with two style options. In the first style, the main box allows setting the saturation and lightness of the color and the second box allows setting the color; this is the default. In the second style, the main box allows setting the color and the second box allows setting the saturation and lightness. For more information please view the [demo](https://cevadtokatli.github.io/color-picker).
 embed | Boolean | true | A boolean value that indicates whether the picker is shown when a button is clicked or embedded into the page directly. If it is false, a button is displayed that allows users to show the picker.
 size | String | medium | The picker's size. Three options available *Small, Medium, Large*.
 allowOpacity | Boolean | true | A boolean value that indicates whether the opacity bar is visible or not.
@@ -74,14 +61,5 @@ hide | | void | Hides the picker.
 save | | void | Saves the selection.
 cancel | | void | Cancels the selection.
 
-## IE Support
-IE 10 is not supported and patches to fix problems will not be accepted.
-
 ## License
-Cordelia is provided under the [MIT License](https://opensource.org/licenses/MIT).
-
-## Related Projects
-* [cordelia-jquery](https://github.com/cevadtokatli/cordelia-jquery)
-* [cordelia-react](https://github.com/cevadtokatli/cordelia-react)
-* [cordelia-vue](https://github.com/cevadtokatli/cordelia-vue)
-* [cordelia-angular](https://github.com/cevadtokatli/cordelia-angular)
+Color Picker is provided under the [MIT License](https://opensource.org/licenses/MIT).

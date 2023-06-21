@@ -1,4 +1,4 @@
-import 'es6-promise/auto';
+import './style.css'
 import {createEvent} from './event'
 
 const events = {
@@ -25,7 +25,7 @@ const defaults = {
     allowPaletteAddColor: true
 };
 
-export default class Cordelia {
+export default class ColorPicker {
     /**
      * @param {Object} o
      * @constructor

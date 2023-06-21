@@ -1,39 +1,33 @@
 {
-  "name": "cordelia",
-  "version": "1.0.3",
+  "name": "@cevad-tokatli/color-picker",
+  "version": "1.0.1",
+  "license": "MIT",
+  "main": "index.js",
   "description": "Color picker for web and mobile browsers",
-  "keywords": ["javascript", "colorpicker"],
+  "keywords": [
+    "javascript",
+    "color-picker"
+  ],
   "author": {
     "name": "Cevad Tokatli",
-    "email": "cevadtokatli@hotmail.com",
-    "url": "http://cevadtokatli.com"
+    "email": "cevadtokatli@hotmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cevadtokatli/cordelia"
+    "url": "https://github.com/cevadtokatli/color-picker"
   },
-  "files": [
-    "src",
-    "dist",
-    "types",
-    "gulpfile.js"
-  ],
-  "license": "MIT",
-  "main": "dist/js/cordelia.min.js",
-  "module": "dist/js/cordelia.esm.js",
-  "typings": "types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn clear && babel src -d lib --copy-files && yarn copy",
+    "clear": "rm -rf lib",
+    "copy": "cp package.json lib/package.json && cp README.md lib/README.md && cp LICENSE lib/LICENSE",
+    "dev": "babel src -d lib --watch",
+    "release": "cd lib && yarn publish"
+  },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.6.1",
-    "es6-promise": "^4.2.4",
-    "gulp": "^3.9.1",
-    "gulp-cssmin": "^0.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^3.0.0",
-    "rollup": "^0.58.0",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "@babel/cli": "7.22.5",
+    "@babel/core": "7.22.5"
   }
 }
