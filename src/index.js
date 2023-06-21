@@ -1,5 +1,5 @@
 import './style.css'
-import {createEvent} from './event'
+import {createEvent} from './util'
 
 const events = {
     open: createEvent('open'),
